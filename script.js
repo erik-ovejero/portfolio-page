@@ -28,6 +28,7 @@ function updateThemeImages(theme) {
     let savedTheme = localStorage.getItem("theme") || "light";
     body.classList.toggle("dark-mode", savedTheme === "dark");
     if (themeToggle) updateThemeIcon(savedTheme);
+    updateThemeImages(savedTheme);
 
     // Cargar el idioma guardado
     let currentLang = localStorage.getItem("lang") || "en";
@@ -39,7 +40,7 @@ themeToggle.addEventListener("click", () => {
     let theme = isDark ? "dark" : "light";
     localStorage.setItem("theme", theme);
     updateThemeIcon(theme);
-    updateThemeImages(theme); // Nueva línea
+    updateThemeImages(theme);
 });
 
     // Toggle Language
@@ -101,5 +102,3 @@ themeToggle.addEventListener("click", () => {
         if (langToggle) langToggle.textContent = lang === "en" ? "ES" : "EN";
     }
 });
-// Al cargar la página
-updateThemeImages(savedTheme);
