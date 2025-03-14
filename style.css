@@ -384,7 +384,7 @@ article .icon {
 }
 
 .project-btn {
-  color: black:
+  color: black;
   border-color: rgb(163,163,163);
 }
 
@@ -499,4 +499,33 @@ footer p {
 #theme-toggle img, #theme-toggle-hamburger img {
   width: 24px;
   height: 24px;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+right: 4rem;
+top: 4rem;
+}
+
+.theme-toggle {
+  width: 50px;  /* Si fuera necesario fijar ancho al botón de tema */
+  text-align: center;
+  display: flex;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+}
+
+
+/* Para pantallas pequeñas, puedes dejar que se adapten */
+@media (max-width: 767px) {
+.lang-toggle,
+.theme-toggle {
+  width: auto;
+  display: flex;
+  white-space: nowrap;
+}
 }
