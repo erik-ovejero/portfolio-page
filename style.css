@@ -185,7 +185,11 @@ a {
     font-weight: 600;
   }
 
-  .section__text__p1 {
+  .section__text__p1,
+  .section__text__p1_gettoknow,
+  .section__text__p1_exploremy,
+  .section__text__p1_browse,
+  .section__text__p1_get_in_touch{
     text-align:center;
   }
 
@@ -194,7 +198,10 @@ a {
     margin-bottom: 1rem;
   }
 
-  .title{
+  .title,.title-about,
+  .title-experience,
+  .title-projects,
+  .title-contact{
     font-size: 3rem;
     text-align: center;
   }
@@ -459,19 +466,37 @@ footer p {
   color: white;
 }
 
+.dark-mode .hamburger-icon span {
+  background-color: white;
+}
+
+.dark-mode .menu-links {
+  background-color: #121212;
+}
+
+.dark-mode .menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
 .dark-mode .experience-sub-title {
   color: #f0f0f0;
 }
 
 
-#theme-toggle {
+#theme-toggle,#theme-toggle-hamburger {
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-#theme-toggle img {
+#theme-toggle img, #theme-toggle-hamburger img {
   width: 24px;
   height: 24px;
 }

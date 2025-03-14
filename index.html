@@ -17,16 +17,15 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="toggle-buttons">
-                    <button id="theme-toggle">
-                        <img id="dark-icon"
-                         src="./assets/light-mode.png" 
-                         alt="Change theme">
-                    </button>
-                    <button id="lang-toggle">🇪🇸</button>
-                </div>
-                
+                </ul>               
+            </div>
+            <div class="toggle-buttons">
+                <button class="theme-toggle" id="theme-toggle">
+                    <img id="dark-icon"
+                     src="./assets/light-mode.png" 
+                     alt="Change theme">
+                </button>
+                <button class="lang-toggle" id="lang-toggle">🇪🇸</button>
             </div>
         </nav>
         <nav id="hamburger-nav">
@@ -42,6 +41,14 @@
                     <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
                     <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
                     <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                    <div class="toggle-buttons">
+                        <button class="theme-toggle" id="theme-toggle-hamburger">
+                            <img id="dark-icon"
+                             src="./assets/light-mode.png" 
+                             alt="Change theme">
+                        </button>
+                        <button class="lang-toggle"id="lang-toggle-hamburger">🇪🇸</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -75,8 +82,8 @@
          </div>
         </section>
         <section id="about">
-            <p class="section__text__p1">Get To Know More</p>
-            <h1 class="title">About Me</h1>
+            <p class="section__text__p1_gettoknow">Get To Know More</p>
+            <h1 class="title-about">About Me</h1>
                 <div class="section-container">
                     <div class="section__pic-container">
                         <img src="./assets/about-pic.png" alt="Profile Picture" 
@@ -92,8 +99,8 @@
                             data-dark="./assets/experience-white.png"
                             class="icon"
                             />
-                            <h3>Experience</h3>
-                            <p>2+ years <br />Backend Development</p>
+                            <h3 class = "htres-experiencia">Experience</h3>
+                            <p class = "masDosAnios">2+ years <br />Backend Development</p>
                         </div>
                         <div class="details-container">
                             <img src="./assets/education.png"
@@ -102,15 +109,15 @@
                             data-dark="./assets/education-white.png"
                             class="icon"
                             />
-                            <h3>Education</h3>
-                            <p>3rd year student <br />Computer Science</p>
+                            <h3 class = "htres-educacion">Education</h3>
+                            <p class = "TercerAnioEstudiante">3rd year student <br />Computer Science</p>
                         </div>
                         </div>
                         <div class="text-container">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                 Similique, optio. In expedita earum aspernatur ut nihil eum saepe nisi possimus!
-                                  Eaque ab maiores impedit perferendis dignissimos sit perspiciatis dolorem modi?
+                            <p class="p-about-me">
+                                I have been programming in Java for over two years.
+                                I can build MySQL databases, I enjoy working with the Spring Boot framework, and I usually perform testing using JUnit. 
+                                Lately, I've been developing Java applications for Android.
                             </p>
                         </div>
                     </div>
@@ -124,8 +131,8 @@
                 />
         </section>
         <section id="experience">
-            <p class="section__text__p1">Explore My</p>
-            <h1 class="title">Experience</h1>
+            <p class="section__text__p1_exploremy">Explore My</p>
+            <h1 class="title-experience">Experience</h1>
             <div class="experience-details-container">
                 <div class="about-containers">
                     <div class="details-container">
@@ -268,8 +275,8 @@
             />
         </section>
         <section id="projects">
-            <p class="section__text__p1">Browse My Recent</p>
-            <h1 class="title">Projects</h1>
+            <p class="section__text__p1_browse">Browse My Recent</p>
+            <h1 class="title-projects">Projects</h1>
             <div class="experience-details-container">
                 <div class="about-containers">
             <div class="details-container color-container">
@@ -344,8 +351,8 @@
         />
         </section>
         <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
+        <p class="section__text__p1_get_in_touch">Get in Touch</p>
+        <h1 class="title-contact">Contact Me</h1>
         <div class="contact-info-upper-container">
             <div class="contact-info-container">
                 <img src="./assets/email.png" 
