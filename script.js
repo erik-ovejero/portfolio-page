@@ -1,166 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Selecciona todos los botones de tema e idioma
-    const themeToggles = document.querySelectorAll(".theme-toggle");
-    const langToggles = document.querySelectorAll(".lang-toggle");
-    const body = document.body;
+const translations={
+  es:{skip:'Saltar al contenido',navAbout:'Sobre mí',navSkills:'Habilidades',navProjects:'Proyectos',navContact:'Contacto',heroEyebrow:'Hola, soy',heroRole:'Desarrollador Backend Java en formación',heroDescription:'Estudiante avanzado de Licenciatura en Informática, enfocado en Java, Spring Boot, APIs REST y bases de datos MySQL. Construyo aplicaciones orientadas a resolver problemas reales y sigo fortaleciendo mis conocimientos de arquitectura backend.',viewProjects:'Ver proyectos',downloadCv:'Ver CV',availability:'Abierto a oportunidades junior',aboutEyebrow:'Conocé mi perfil',aboutTitle:'Sobre mí',aboutText1:'Mi objetivo profesional es desarrollarme como Java Backend Developer. Durante la carrera trabajé en aplicaciones de escritorio, sistemas conectados a MySQL, diseño orientado a objetos, procesos ETL, pruebas y proyectos académicos de arquitectura de software.',aboutText2:'Actualmente continúo profundizando Spring Boot, desarrollo de APIs REST, persistencia con JPA/Hibernate, seguridad y buenas prácticas. Me interesa escribir código claro, comprender cómo funciona cada componente y convertir requisitos concretos en soluciones mantenibles.',educationTitle:'Formación',educationText:'Licenciatura en Informática\nEtapa avanzada de la carrera',focusTitle:'Especialización',focusText:'Java Backend\nSpring Boot y MySQL',skillsEyebrow:'Tecnologías y conocimientos',skillsTitle:'Habilidades',backendTitle:'Backend y Java',databaseTitle:'Bases de datos',toolsTitle:'Herramientas y fundamentos',otherTitle:'Experiencia complementaria',projectsEyebrow:'Aplicaciones y trabajos destacados',projectsTitle:'Proyectos',hotelTitle:'Sistema de gestión hotelera',hotelText:'Aplicación Java Swing con MySQL para gestionar usuarios, huéspedes, habitaciones, reservas, pagos, facturación, disponibilidad y reportes. Implementa arquitectura MVC, DAO, validaciones y principios de POO.',ocrTitle:'Aplicación OCR para Android',ocrText:'Aplicación móvil que captura imágenes, reconoce texto y permite reutilizar el contenido obtenido. Desarrollada con CameraX, ML Kit y una interfaz moderna para Android.',quizTitle:'Generador de exámenes',quizText:'Programa con interfaz gráfica que carga preguntas desde archivos de texto, genera evaluaciones de verdadero o falso y opción múltiple, corrige respuestas y muestra la solución correcta.',githubNote:'Podés consultar mis repositorios públicos y próximos proyectos en GitHub.',visitGithub:'Visitar GitHub',contactEyebrow:'Hablemos',contactTitle:'Contacto',contactText:'Estoy interesado en oportunidades como desarrollador Java junior, prácticas profesionales y proyectos donde pueda seguir aprendiendo y aportar valor.',openProfile:'Abrir perfil profesional',viewRepositories:'Ver repositorios',backTop:'Volver arriba ↑'},
+  en:{skip:'Skip to content',navAbout:'About',navSkills:'Skills',navProjects:'Projects',navContact:'Contact',heroEyebrow:'Hello, I am',heroRole:'Java Backend Developer in training',heroDescription:'Advanced Computer Science degree student focused on Java, Spring Boot, REST APIs and MySQL databases. I build applications aimed at solving real problems while continuing to strengthen my backend architecture skills.',viewProjects:'View projects',downloadCv:'View résumé',availability:'Open to junior opportunities',aboutEyebrow:'Get to know my profile',aboutTitle:'About me',aboutText1:'My professional goal is to grow as a Java Backend Developer. Throughout my degree I have worked on desktop applications, MySQL-connected systems, object-oriented design, ETL processes, testing and academic software architecture projects.',aboutText2:'I am currently deepening my knowledge of Spring Boot, REST API development, persistence with JPA/Hibernate, security and best practices. I enjoy writing clear code, understanding how each component works and turning concrete requirements into maintainable solutions.',educationTitle:'Education',educationText:'Computer Science degree\nAdvanced stage of the program',focusTitle:'Specialization',focusText:'Java Backend\nSpring Boot and MySQL',skillsEyebrow:'Technologies and knowledge',skillsTitle:'Skills',backendTitle:'Backend and Java',databaseTitle:'Databases',toolsTitle:'Tools and fundamentals',otherTitle:'Additional experience',projectsEyebrow:'Featured applications and work',projectsTitle:'Projects',hotelTitle:'Hotel management system',hotelText:'Java Swing and MySQL application for managing users, guests, rooms, bookings, payments, invoices, availability and reports. It uses MVC, DAO, validations and OOP principles.',ocrTitle:'Android OCR application',ocrText:'Mobile application that captures images, recognizes text and lets users reuse the extracted content. Built with CameraX, ML Kit and a modern Android interface.',quizTitle:'Exam generator',quizText:'Desktop application that loads questions from text files, generates true-or-false and multiple-choice tests, checks answers and displays the correct solution.',githubNote:'You can explore my public repositories and upcoming projects on GitHub.',visitGithub:'Visit GitHub',contactEyebrow:'Let’s talk',contactTitle:'Contact',contactText:'I am interested in junior Java developer opportunities, internships and projects where I can continue learning and add value.',openProfile:'Open professional profile',viewRepositories:'View repositories',backTop:'Back to top ↑'}
+};
 
-    // Función para actualizar las imágenes de tema
-    function updateThemeImages(theme) {
-        document.querySelectorAll('.icon').forEach(img => {
-            if (img.dataset.original && img.dataset.dark) {
-                img.src = theme === "dark" ? img.dataset.dark : img.dataset.original;
-            }
-        });
-    }
+const body=document.body;
+const themeButton=document.querySelector('#theme-toggle');
+const langButton=document.querySelector('#lang-toggle');
+const menuButton=document.querySelector('.menu-toggle');
+const navMenu=document.querySelector('#nav-menu');
 
-    // Función para actualizar el icono de tema en todos los botones
-    function updateThemeIcon(theme) {
-        const imgSrc = theme === "dark" ? "./assets/light-mode-white.png" : "./assets/light-mode.png";
-        themeToggles.forEach(btn => {
-            btn.innerHTML = `<img class="icon" 
-                                data-original="./assets/light-mode.png" 
-                                data-dark="./assets/light-mode-white.png" 
-                                src="${imgSrc}" 
-                                alt="Theme Icon" 
-                                width="24" height="24">`;
-        });
-    }
+function setTheme(theme){body.classList.toggle('dark',theme==='dark');localStorage.setItem('portfolio-theme',theme);document.querySelectorAll('[data-light]').forEach(img=>img.src=theme==='dark'?img.dataset.dark:img.dataset.light);themeButton.textContent=theme==='dark'?'☀':'◐';themeButton.setAttribute('aria-label',theme==='dark'?'Activar tema claro':'Activar tema oscuro')}
+function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const value=translations[lang][el.dataset.i18n];if(value)el.innerText=value});langButton.textContent=lang==='es'?'EN':'ES';localStorage.setItem('portfolio-lang',lang);document.title=lang==='es'?'Erik Ovejero | Desarrollador Backend Java':'Erik Ovejero | Java Backend Developer'}
 
-    // Función para actualizar textos según el idioma
-    function updateLanguage(lang) {
-        const translations = {
-            en: {
-                about: "About",
-                experience: "Experience",
-                experienceTwo: "Experience",
-                projects: "Projects",
-                contact: "Contact",
-                contact2: "Contact",
-                learnMore: "Get To Know More",
-                learnMore2: "About Me",
-                learnMoreTitle: "About Me",
-                hello: "Hello, I'm",
-                backend: "Backend Developer",
-                downloadCV: "Download CV",
-                getInTouch: "Erik M Ovejero",
-                HTresExperiencia: "Experience",
-                HTresEducacion: "Education",
-                masDosAnios: "2+ years Backend Development",
-                TercerAnioEstudiante:"3rd year student Computer Science",
-                pAboutMe:"I have been programming in Java for over two years. I can build MySQL databases, I enjoy working with the Spring Boot framework, and I usually perform testing using JUnit. Lately, I've been developing Java applications for Android.",
-                exploreMy:"Explore My",
-                browseMy:"Browse My Recent",
-                projects:"Projects",
-                getInTouch:"Get in Touch",
-                contactMe:"Contact Me",
-            },
-            es: {
-                about: "Sobre mí",
-                experience: "Experiencia",
-                experienceTwo: "Experiencia",
-                projects: "Proyectos",
-                contact: "Contacto",
-                contact2: "Contacto",
-                learnMore: "Aprende más",
-                learnMore2: "Sobre mí",
-                learnMoreTitle: "Sobre mí",
-                hello: "Hola, soy",
-                backend: "Desarrollador Backend",
-                downloadCV: "Descargar CV",
-                getInTouch: "Erik M Ovejero",
-                HTresExperiencia: "Experiencia",
-                HTresEducacion: "Educación",
-                masDosAnios: "2+ años Backend Development",
-                TercerAnioEstudiante:"Estudiante de Tercer año en Licenciatura en Informática",
-                pAboutMe:"Programo en Java desde hace más de dos años, puedo armar bases de datos Mysql, me gusta el Framework SpringBoot y suelo hacer testeo con JUnit, ultimamente estuve programando aplicaciones en Java para Android.",
-                exploreMy: "Explora Mi",
-                browseMy:"Navega por mis",
-                projectsTwo:"Proyectos",
-                getInTouch:"Para más información",
-                contactMe:"Contáctame",
-                
-            }
-        };
+setTheme(localStorage.getItem('portfolio-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'));
+setLanguage(localStorage.getItem('portfolio-lang')||'es');
 
-        const elements = {
-            about: document.querySelectorAll("a[href='#about']"),
-            experience: document.querySelectorAll("a[href='#experience']"),
-            experienceTwo: document.querySelector(".title-experience"),
-            projects: document.querySelectorAll("a[href='#projects']"),
-            contact: document.querySelectorAll("a[href='#contact']"),
-            contact2: document.querySelector(".btn-container .btn-color-1"),
-            learnMoreTitle: document.querySelector(".title-about"),
-            learnMore: document.querySelector(".section__text__p1_gettoknow "),
-            hello: document.querySelector(".section__text__p1"),
-            backend: document.querySelector(".section__text__p2"),
-            downloadCV: document.querySelector(".btn-container .btn-color-2"),
-            getInTouch: document.querySelector(".title"),
-            HTresExperiencia: document.querySelector(".htres-experiencia"),
-            HTresEducacion: document.querySelector(".htres-educacion"),
-            masDosAnios: document.querySelector(".masDosAnios"),
-            TercerAnioEstudiante:document.querySelector(".TercerAnioEstudiante"),
-            pAboutMe:document.querySelector(".p-about-me"),
-            exploreMy:document.querySelector(".section__text__p1_exploremy"),
-            browseMy:document.querySelector(".section__text__p1_browse"),
-            projectsTwo:document.querySelector(".title-projects"),
-            getInTouch:document.querySelector(".section__text__p1_get_in_touch"),
-            contactMe:document.querySelector(".title-contact"),
-        };
+themeButton.addEventListener('click',()=>setTheme(body.classList.contains('dark')?'light':'dark'));
+langButton.addEventListener('click',()=>setLanguage(document.documentElement.lang==='es'?'en':'es'));
+menuButton.addEventListener('click',()=>{const open=navMenu.classList.toggle('open');menuButton.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open))});
+document.querySelectorAll('.nav-menu a').forEach(link=>link.addEventListener('click',()=>{navMenu.classList.remove('open');menuButton.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+document.querySelector('#current-year').textContent=new Date().getFullYear();
 
-        for (const key in elements) {
-            const element = elements[key];
-            if (element) {
-                if (element instanceof NodeList) {
-                    element.forEach(el => {
-                        el.textContent = translations[lang][key];
-                    });
-                } else {
-                    element.textContent = translations[lang][key];
-                }
-            }
-        }
-
-        // Actualizar el texto de cada botón de idioma
-        langToggles.forEach(btn => {
-            btn.textContent = lang === "en" ? "ES" : "EN";
-        });
-    }
-
-    // Cargar el tema guardado
-    let savedTheme = localStorage.getItem("theme") || "light";
-    body.classList.toggle("dark-mode", savedTheme === "dark");
-    updateThemeIcon(savedTheme);
-    updateThemeImages(savedTheme);
-
-    // Cargar el idioma guardado
-    let currentLang = localStorage.getItem("lang") || "en";
-    updateLanguage(currentLang);
-
-    // Agregar listener a cada botón de tema
-    themeToggles.forEach(btn => {
-        btn.addEventListener("click", () => {
-            let isDark = body.classList.toggle("dark-mode");
-            let theme = isDark ? "dark" : "light";
-            localStorage.setItem("theme", theme);
-            updateThemeIcon(theme);
-            updateThemeImages(theme);
-        });
-    });
-
-    // Agregar listener a cada botón de idioma
-    langToggles.forEach(btn => {
-        btn.addEventListener("click", () => {
-            currentLang = currentLang === "en" ? "es" : "en";
-            localStorage.setItem("lang", currentLang);
-            updateLanguage(currentLang);
-        });
-    });
-
-    // Función para el menú hamburguesa
-    window.toggleMenu = function() {
-        const menu = document.querySelector(".menu-links");
-        const icon = document.querySelector(".hamburger-icon");
-        menu.classList.toggle("open");
-        icon.classList.toggle("open");
-    }
-});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));

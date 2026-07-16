@@ -1,103 +1,141 @@
-@media screen and (max-width: 1400px) {
-    #profile {
-      height: 83vh;
-      margin-bottom: 6rem;
+@media(max-width:900px) {
+    .menu-toggle {
+        display:block
     }
-    .about-containers {
-      flex-wrap: wrap;
+
+    .nav-menu {
+        position:absolute;
+        top:78px;
+        left:20px;
+        right:20px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:18px;
+        padding:18px;
+        box-shadow:var(--shadow)
     }
-    #contact,
-    #projects {
-      height: fit-content;
+
+    .nav-menu.open {
+        display:flex
     }
-  }
-  
-  @media screen and (max-width: 1200px) {
-    #desktop-nav {
-      display: none;
+
+    .header-actions {
+        margin:6px 0 0
     }
-    #hamburger-nav {
-      display: flex;
+
+    .menu-toggle.open span:nth-child(1) {
+        transform:translateY(7px) rotate(45deg)
     }
-    #experience,
-    .experience-details-container {
-      margin-top: 2rem;
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity:0
     }
-    #profile,
-    .section-container {
-      display: block;
+
+    .menu-toggle.open span:nth-child(3) {
+        transform:translateY(-7px) rotate(-45deg)
     }
-    .arrow {
-      display: none;
+
+    .hero {
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:48px;
+        padding-top:60px
     }
-    section,
-    .section-container {
-      height: fit-content;
+
+    .hero-description {
+        margin-inline:auto
     }
-    section {
-      margin: 0 5%;
+
+    .hero-actions,.social-links {
+        justify-content:center
     }
-    .section__pic-container {
-      width: 275px;
-      height: 275px;
-      margin: 0 auto 2rem;
+
+    .hero-visual {
+        width:min(430px,85%);
+        margin:auto
     }
-    .about-containers {
-      margin-top: 0;
+
+    .about-grid {
+        grid-template-columns:1fr
     }
-  }
-  
-  @media screen and (max-width: 600px) {
-    #contact,
-    footer {
-      height: 40vh;
+
+    .about-image {
+        width:min(430px,100%);
+        margin:auto
     }
-    #profile {
-      height: 83vh;
-      margin-bottom: 0;
+
+    .projects-grid {
+        grid-template-columns:1fr 1fr
     }
-    article {
-      font-size: 1rem;
+
+    .contact-card {
+        grid-template-columns:1fr;
+        gap:34px
     }
-    footer nav {
-      height: fit-content;
-      margin-bottom: 2rem;
+
+    .availability-badge {
+        left:50%;
+        transform:translateX(-50%);
+        white-space:nowrap
     }
-    .about-containers,
-    .contact-info-upper-container,
-    .btn-container {
-      flex-wrap: wrap;
+
+}
+
+@media(max-width:620px) {
+    .section-shell,.navbar {
+        width:min(100% - 28px,1120px)
     }
-    .contact-info-container {
-      margin: 0;
+
+    .section {
+        padding-block:78px
     }
-    .contact-info-container p,
-    .nav-links li a {
-      font-size: 1rem;
+
+    .hero {
+        min-height:auto;
+        padding-block:55px 75px
     }
-    .experience-sub-title {
-      font-size: 1.25rem;
+
+    .hero h1 {
+        font-size:2.85rem
     }
-    .logo {
-      font-size: 1.5rem;
+
+    .hero-role {
+        font-size:1.15rem
     }
-    .nav-links {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
+
+    .about-cards,.skills-grid,.projects-grid {
+        grid-template-columns:1fr
     }
-    .section__pic-container {
-      width: auto;
-      height: 46vw;
-      justify-content: center;
+
+    .contact-card {
+        padding:34px 24px;
+        border-radius:24px
     }
-    .section__text__p2 {
-      font-size: 1.25rem;
+
+    .contact-links a {
+        flex-direction:column
     }
-    .title {
-      font-size: 2rem;
+
+    .contact-links span {
+        text-align:left
     }
-    .text-container {
-      text-align: justify;
+
+    .footer-content {
+        padding-block:28px;
+        min-height:auto;
+        flex-direction:column;
+        gap:8px
     }
-  }
+
+    .availability-badge {
+        font-size:.72rem
+    }
+
+    .project-card>img {
+        aspect-ratio:16/10
+    }
+
+}
