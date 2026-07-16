@@ -1,391 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset=""UTF-8 />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Portfolio</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="mediaqueries.css" />
-    </head>
-    <body>
-        <nav id="desktop-nav">
-            <div class="logo">Erik M. Ovejero</div>
-            <div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>               
-            </div>
-            <div class="toggle-buttons">
-                <button class="theme-toggle" id="theme-toggle">
-                    <img id="dark-icon"
-                     src="./assets/light-mode.png" 
-                     alt="Change theme">
-                </button>
-                <button class="lang-toggle" id="lang-toggle">🇪🇸</button>
-            </div>
-        </nav>
-        <nav id="hamburger-nav">
-            <div class="logo">Erik M Ovejero</div>
-            <div class="hamburger-menu"> 
-                <div class="hamburger-icon" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="menu-links">
-                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-                    <div class="toggle-buttons">
-                        <button class="theme-toggle" id="theme-toggle-hamburger">
-                            <img id="dark-icon"
-                             src="./assets/light-mode.png" 
-                             alt="Change theme">
-                        </button>
-                        <button class="lang-toggle"id="lang-toggle-hamburger">🇪🇸</button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <section id="profile">
-            <div class="section__pic-container">
-                <img src="./assets/profile-pic.png" alt="Erik M Ovejero profile picture">
-            </div>
-            <div class="section__text">
-            <p class="section__text__p1">Hello I'm</p>
-            <h1 class="title">Erik M Ovejero</h1>
-            <p class="section__text__p2">Backend Developer</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/CurriculimV - Erik Maximiliano Ovejero.pdf')">Download CV</button>
-                <button class="btn btn-color-1" onclick="location.href='.#contact'">Contact</button>
-            </div>
-            <div id="socials-container">
-                <img src="./assets/linkedin.png" 
-                alt="My LinkedIn profile" 
-                data-original="./assets/linkedin.png"
-                data-dark="./assets/linkedin-white.png"
-                class="icon" 
-                onclick="location.href='https://linkedin.com/in/erik-maximiliano-ovejero-217605192'" />
+<html lang="es">
 
-                <img src="./assets/github.png" 
-                alt="My GitHub profile" 
-                data-original="./assets/github.png"
-                data-dark="./assets/github-white.png"
-                class="icon" 
-                onclick="location.href='https://github.com/erik-ovejero'" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Erik Maximiliano Ovejero, estudiante de Licenciatura en Informática orientado al desarrollo backend con Java, Spring Boot y MySQL.">
+    <meta name="author" content="Erik Maximiliano Ovejero">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Erik Ovejero | Java Backend Developer">
+    <meta property="og:description"
+        content="Proyectos de desarrollo backend, aplicaciones Java, bases de datos y software académico.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/profile-pic.png">
+    <title>Erik Ovejero | Java Backend Developer</title>
+    <link rel="icon" href="assets/profile-pic.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content" data-i18n="skip">Saltar al contenido</a>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <a class="logo" href="#home" aria-label="Ir al inicio">Erik Ovejero<span>.</span></a>
+            <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#about" data-i18n="navAbout">Sobre mí</a>
+                <a href="#skills" data-i18n="navSkills">Habilidades</a>
+                <a href="#projects" data-i18n="navProjects">Proyectos</a>
+                <a href="#contact" data-i18n="navContact">Contacto</a>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="icon-button" type="button" aria-label="Cambiar tema"
+                        title="Cambiar tema">◐</button>
+                    <button id="lang-toggle" class="lang-button" type="button" aria-label="Cambiar idioma">EN</button>
+                </div>
             </div>
-         </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="home" class="hero section-shell">
+            <div class="hero-copy reveal">
+                <p class="eyebrow" data-i18n="heroEyebrow">Hola, soy</p>
+                <h1>Erik Maximiliano Ovejero</h1>
+                <p class="hero-role" data-i18n="heroRole">Desarrollador Backend Java en formación</p>
+                <p class="hero-description" data-i18n="heroDescription">Estudiante avanzado de Licenciatura en
+                    Informática, enfocado en Java, Spring Boot, APIs REST y bases de datos MySQL. Construyo aplicaciones
+                    orientadas a resolver problemas reales y sigo fortaleciendo mis conocimientos de arquitectura
+                    backend.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#projects" data-i18n="viewProjects">Ver proyectos</a>
+                    <a class="button button-secondary" href="assets/CV-Erik-Maximiliano-Ovejero.pdf" target="_blank"
+                        rel="noopener" data-i18n="downloadCv">Ver CV</a>
+                </div>
+                <div class="social-links" aria-label="Redes profesionales">
+                    <a href="https://github.com/erik-ovejero" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/github.png" data-light="assets/github.png" data-dark="assets/github-white.png"
+                            alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/erik-maximiliano-ovejero-217605192/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="assets/linkedin.png" data-light="assets/linkedin.png"
+                            data-dark="assets/linkedin-white.png" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <div class="portrait-frame">
+                    <img src="assets/profile-pic.png" alt="Retrato de Erik Maximiliano Ovejero">
+                </div>
+                <div class="availability-badge"><span></span><span data-i18n="availability">Abierto a oportunidades
+                        junior</span></div>
+            </div>
         </section>
-        <section id="about">
-            <p class="section__text__p1_gettoknow">Get To Know More</p>
-            <h1 class="title-about">About Me</h1>
-                <div class="section-container">
-                    <div class="section__pic-container">
-                        <img src="./assets/about-pic.png" alt="Profile Picture" 
-                        class="about-pic"
-                        />
-                    </div>
-                    <div class="about-details-container">
-                        <div class="about-containers">
-                        <div class="details-container">
-                            <img src="./assets/experience.png"
-                            alt="Experience icon"
-                            data-original="./assets/experience.png"
-                            data-dark="./assets/experience-white.png"
-                            class="icon"
-                            />
-                            <h3 class = "htres-experiencia">Experience</h3>
-                            <p class = "masDosAnios">2+ years <br />Backend Development</p>
-                        </div>
-                        <div class="details-container">
-                            <img src="./assets/education.png"
-                            alt="Education icon"
-                            data-original="./assets/education.png"
-                            data-dark="./assets/education-white.png"
-                            class="icon"
-                            />
-                            <h3 class = "htres-educacion">Education</h3>
-                            <p class = "TercerAnioEstudiante">3rd year student <br />Computer Science</p>
-                        </div>
-                        </div>
-                        <div class="text-container">
-                            <p class="p-about-me">
-                                I have been programming in Java for over two years.
-                                I can build MySQL databases, I enjoy working with the Spring Boot framework, and I usually perform testing using JUnit. 
-                                Lately, I've been developing Java applications for Android.
-                            </p>
-                        </div>
+
+        <section id="about" class="section section-shell">
+            <div class="section-heading reveal">
+                <p class="eyebrow" data-i18n="aboutEyebrow">Conocé mi perfil</p>
+                <h2 data-i18n="aboutTitle">Sobre mí</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal"><img src="assets/about-pic.png"
+                        alt="Erik Ovejero trabajando en sus proyectos"></div>
+                <div class="about-content reveal">
+                    <p data-i18n="aboutText1">Mi objetivo profesional es desarrollarme como Java Backend Developer.
+                        Durante la carrera trabajé en aplicaciones de escritorio, sistemas conectados a MySQL, diseño
+                        orientado a objetos, procesos ETL, pruebas y proyectos académicos de arquitectura de software.
+                    </p>
+                    <p data-i18n="aboutText2">Actualmente continúo profundizando Spring Boot, desarrollo de APIs REST,
+                        persistencia con JPA/Hibernate, seguridad y buenas prácticas. Me interesa escribir código claro,
+                        comprender cómo funciona cada componente y convertir requisitos concretos en soluciones
+                        mantenibles.</p>
+                    <div class="about-cards">
+                        <article class="info-card">
+                            <span class="card-icon">🎓</span>
+                            <h3 data-i18n="educationTitle">Formación</h3>
+                            <p data-i18n="educationText">Licenciatura en Informática<br>Etapa avanzada de la carrera</p>
+                        </article>
+                        <article class="info-card">
+                            <span class="card-icon">💻</span>
+                            <h3 data-i18n="focusTitle">Especialización</h3>
+                            <p data-i18n="focusText">Java Backend<br>Spring Boot y MySQL</p>
+                        </article>
                     </div>
                 </div>
-                <img src="./assets/arrow.png" 
-                alt="Arrow Icon" 
-                class="icon arrow"
-                data-original="./assets/arrow.png"
-                data-dark="./assets/arrow-white.png"
-                onclick="location.href='./#experience'"
-                />
+            </div>
         </section>
-        <section id="experience">
-            <p class="section__text__p1_exploremy">Explore My</p>
-            <h1 class="title-experience">Experience</h1>
-            <div class="experience-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <h2 class="experience-sub-title">Backend Development</h2>
-                        <div class="article-container">
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>Java</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>MySQL</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>Spring Boot</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>GoLang</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>Spring Data JPA</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>JUnit</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="details-container">
-                        <h2 class="experience-sub-title">Frontend Development</h2>
-                        <div class="article-container">
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>HTML 5</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>CSS3</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>Bootstrap 5</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>Thymeleaf</h3>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="./assets/checkmark.png" alt="Experience icon"
-                                data-original="./assets/checkmark.png"
-                                data-dark="./assets/checkmark-white.png"
-                                class="icon"
-                                />
-                                <div>
-                                    <h3>JavaScript</h3>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
+
+        <section id="skills" class="section section-shell">
+            <div class="section-heading reveal">
+                <p class="eyebrow" data-i18n="skillsEyebrow">Tecnologías y conocimientos</p>
+                <h2 data-i18n="skillsTitle">Habilidades</h2>
             </div>
-            <img src="./assets/arrow.png" alt="Arrow Icon" class="icon arrow"
-            data-original="./assets/arrow.png"
-            data-dark="./assets/arrow-white.png"
-            onclick="location.href='./#projects'"
-            />
+            <div class="skills-grid">
+                <article class="skill-group reveal">
+                    <h3 data-i18n="backendTitle">Backend y Java</h3>
+                    <div class="skill-list"><span>Java</span><span>Spring Boot</span><span>REST
+                            APIs</span><span>JDBC</span><span>Spring Data
+                            JPA</span><span>Hibernate</span><span>JUnit</span><span>Maven</span></div>
+                </article>
+                <article class="skill-group reveal">
+                    <h3 data-i18n="databaseTitle">Bases de datos</h3>
+                    <div class="skill-list"><span>MySQL</span><span>SQL</span><span>Modelado
+                            relacional</span><span>Stored Procedures</span><span>ETL</span><span>Data Warehouse</span>
+                    </div>
+                </article>
+                <article class="skill-group reveal">
+                    <h3 data-i18n="toolsTitle">Herramientas y fundamentos</h3>
+                    <div class="skill-list">
+                        <span>Git</span><span>GitHub</span><span>Docker</span><span>NetBeans</span><span>IntelliJ
+                            IDEA</span><span>POO</span><span>MVC</span><span>UML</span></div>
+                </article>
+                <article class="skill-group reveal">
+                    <h3 data-i18n="otherTitle">Experiencia complementaria</h3>
+                    <div class="skill-list"><span>Java
+                            Swing</span><span>Android</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>MQTT</span><span>Arduino</span>
+                    </div>
+                </article>
+            </div>
         </section>
-        <section id="projects">
-            <p class="section__text__p1_browse">Browse My Recent</p>
-            <h1 class="title-projects">Projects</h1>
-            <div class="experience-details-container">
-                <div class="about-containers">
-            <div class="details-container color-container">
-                <div class="article-container">
-                <img src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-                />
+
+        <section id="projects" class="section section-shell">
+            <div class="section-heading reveal">
+                <p class="eyebrow" data-i18n="projectsEyebrow">Aplicaciones y trabajos destacados</p>
+                <h2 data-i18n="projectsTitle">Proyectos</h2>
             </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Github
-                </button>
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Live Demo
-                </button>
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <img src="assets/project-1.png" alt="Sistema de gestión hotelera desarrollado en Java">
+                    <div class="project-content">
+                        <p class="project-type">Java Desktop</p>
+                        <h3 data-i18n="hotelTitle">Sistema de gestión hotelera</h3>
+                        <p data-i18n="hotelText">Aplicación Java Swing con MySQL para gestionar usuarios, huéspedes,
+                            habitaciones, reservas, pagos, facturación, disponibilidad y reportes. Implementa
+                            arquitectura MVC, DAO, validaciones y principios de POO.</p>
+                        <div class="project-tags">
+                            <span>Java</span><span>Swing</span><span>MySQL</span><span>JDBC</span><span>MVC</span></div>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <img src="assets/project-2.png" alt="Aplicación Android de reconocimiento de texto">
+                    <div class="project-content">
+                        <p class="project-type">Android</p>
+                        <h3 data-i18n="ocrTitle">Aplicación OCR para Android</h3>
+                        <p data-i18n="ocrText">Aplicación móvil que captura imágenes, reconoce texto y permite
+                            reutilizar el contenido obtenido. Desarrollada con CameraX, ML Kit y una interfaz moderna
+                            para Android.</p>
+                        <div class="project-tags"><span>Android</span><span>Java /
+                                Kotlin</span><span>CameraX</span><span>ML Kit</span></div>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <img src="assets/project-3.png" alt="Generador de exámenes de opción múltiple">
+                    <div class="project-content">
+                        <p class="project-type">Java Desktop</p>
+                        <h3 data-i18n="quizTitle">Generador de exámenes</h3>
+                        <p data-i18n="quizText">Programa con interfaz gráfica que carga preguntas desde archivos de
+                            texto, genera evaluaciones de verdadero o falso y opción múltiple, corrige respuestas y
+                            muestra la solución correcta.</p>
+                        <div class="project-tags"><span>Java</span><span>Swing</span><span>Archivos
+                                TXT</span><span>POO</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="projects-footer reveal">
+                <p data-i18n="githubNote">Podés consultar mis repositorios públicos y próximos proyectos en GitHub.</p>
+                <a class="button button-secondary" href="https://github.com/erik-ovejero" target="_blank"
+                    rel="noopener noreferrer" data-i18n="visitGithub">Visitar GitHub</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="section-shell contact-card reveal">
+                <div>
+                    <p class="eyebrow" data-i18n="contactEyebrow">Hablemos</p>
+                    <h2 data-i18n="contactTitle">Contacto</h2>
+                    <p data-i18n="contactText">Estoy interesado en oportunidades como desarrollador Java junior,
+                        prácticas profesionales y proyectos donde pueda seguir aprendiendo y aportar valor.</p>
+                </div>
+                <div class="contact-links">
+                    <a
+                        href="mailto:erik.ovejero@gmail.com"><strong>Email</strong><span>erik.ovejero@gmail.com</span></a>
+                    <a href="https://www.linkedin.com/in/erik-maximiliano-ovejero-217605192/" target="_blank"
+                        rel="noopener noreferrer"><strong>LinkedIn</strong><span data-i18n="openProfile">Abrir perfil
+                            profesional</span></a>
+                    <a href="https://github.com/erik-ovejero" target="_blank"
+                        rel="noopener noreferrer"><strong>GitHub</strong><span data-i18n="viewRepositories">Ver
+                            repositorios</span></a>
                 </div>
             </div>
-            <div class="details-container color-container">
-                <div class="article-container">
-                <img src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-                />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Github
-                </button>
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Live Demo
-                </button>
-                </div>
-            </div>
-            <div class="details-container color-container">
-                <div class="article-container">
-                <img src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-                />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Github
-                </button>
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://github.com/erik-ovejero/Algorithms-Study'">
-                Live Demo
-                </button>
-                </div>
-            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="section-shell footer-content">
+            <p>© <span id="current-year"></span> Erik Maximiliano Ovejero.</p>
+            <a href="#home" data-i18n="backTop">Volver arriba ↑</a>
         </div>
-    </div>
-        <img src="./assets/arrow.png" alt="Arrow Icon" class="icon arrow"
-        data-original="./assets/arrow.png"
-        data-dark="./assets/arrow-white.png"
-        onclick="location.href='./#contact'"
-        />
-        </section>
-        <section id="contact">
-        <p class="section__text__p1_get_in_touch">Get in Touch</p>
-        <h1 class="title-contact">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" 
-                data-original="./assets/email.png"
-                data-dark="./assets/email-white.png"
-                alt="Email icon" 
-                class="icon contact-icon email-icon"
-                />
-                <p><a href="mailto:erik.ovejero@gmail.com">erik.ovejero@gmail.com</a></p>
-                <div class="contact-info-container">
-                    <img src="./assets/linkedin.png" 
-                    data-original="./assets/linkedin.png"
-                    data-dark="./assets/linkedin-white.png"
-                    alt="LinkedIn icon" 
-                    class="icon contact-icon"
-                    />
-                    <p><a href="https://www.linkedin.com/in/erik-maximiliano-ovejero-217605192/">LinkedIn</a></p>
-                </div>
-        </div>
-        </section>
-        <footer>
-            <nav>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <p>Copyright &#169; 2025 Erik M Ovejero. All Rights Reserved.</p>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+    </footer>
+</body>
+
 </html>
